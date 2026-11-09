@@ -1,0 +1,31 @@
+/* Side Panel is the whole surface; no mock Chrome frame or webpage is rendered. */
+.extension-shell{height:100dvh;overflow:hidden}
+.extension-shell .sidebar{width:100%;min-width:0;height:100dvh;border:0}
+.extension-shell .sidebar-scroll{padding:0 12px}
+.extension-shell .quick-open{margin:12px 12px 10px;min-height:34px}
+.extension-shell .favorites-label{margin:0 14px}
+.extension-shell .favorites{grid-template-columns:repeat(auto-fill,36px);gap:7px;padding:8px 12px 10px}
+.extension-shell .favorite{height:36px}
+.extension-shell .favorite:after{bottom:3px}
+.extension-shell .space-heading{padding:12px 4px 8px}
+.extension-shell .empty-pins{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;padding:8px 9px;margin:4px 0 0}
+.extension-shell .empty-pins p{margin:0;font-size:10px}
+.extension-shell .empty-pins button{margin:0;padding:6px 8px;flex-shrink:0}
+.extension-shell .empty-today{padding:10px 8px}
+.extension-shell .row-action{opacity:.85}
+.extension-shell .tab-open[draggable="true"]{cursor:grab}
+.extension-shell .dragging{opacity:.45;cursor:grabbing}
+.extension-shell .drop-target{outline:2px solid var(--accent);outline-offset:-2px;border-radius:8px;background:var(--surface)}
+.extension-shell .expiry-on{color:var(--ink)}
+.extension-shell .favorites{max-height:118px;overflow-y:auto;flex-shrink:0}
+.extension-shell .toast{bottom:100px}
+.connection-notice{margin:0 16px 12px;padding:10px;border:1px solid var(--orange);border-radius:7px;font-size:11px;max-height:145px;overflow:auto;flex-shrink:0;background:var(--surface)}
+.connection-notice p{margin:0;line-height:1.7;overflow-wrap:anywhere}
+.connection-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.connection-actions button{font-size:10px;text-decoration:underline;text-underline-offset:3px;padding:4px 0}
+.extension-shell .setting-row select{width:150px;max-width:58%;flex-shrink:0}
+.extension-shell .setting-row input[type=number]{width:86px;flex-shrink:0}
+.extension-settings-actions{display:grid;gap:7px;margin-top:14px}
+.extension-settings-actions button{text-align:left;white-space:normal}
+.extension-shell .search-result>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.extension-shell .search-result small{max-width:85px;overflow:hidden;text-overflow:ellipsis}

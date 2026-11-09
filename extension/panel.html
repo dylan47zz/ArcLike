@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>ArcLike</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="panel.css">
+  <script defer src="../model.js"></script>
+  <script defer src="../ui.js"></script>
+  <script defer src="panel.js"></script>
+</head>
+<body class="extension-shell">
+  <aside id="sidebar" class="sidebar" aria-label="ArcLike 标签页侧栏" aria-busy="true">
+    <div id="connection-notice" class="connection-notice" role="alert" hidden><p id="connection-message"></p><div id="connection-actions" class="connection-actions" hidden><button data-action="retry">重试</button><button data-action="takeover">改为管理本窗口</button><button data-action="export">导出入口备份</button><button data-action="forget-session">清除临时绑定</button></div></div>
+    <button class="quick-open" id="quick-open"><span class="search-icon" aria-hidden="true"></span><span>搜索或打开…</span><kbd>/</kbd></button>
+    <div id="favorites-label" class="section-label favorites-label" title="把 Today 拖到这里，设为共享常用入口"><span>FAVORITES <span class="label-cn">/ 常用</span></span><span title="在各工作区共享，不隔离登录">共享</span></div>
+    <div id="favorites" class="favorites" aria-label="跨工作区常用入口"></div>
+    <div class="sidebar-scroll">
+      <div class="space-heading"><span id="space-emblem" class="space-emblem"></span><div><h2 id="space-name"></h2><span id="space-caption"></span></div><button id="space-menu" class="icon-button" aria-label="工作区操作" title="工作区操作">···</button></div>
+      <div id="pins-label" class="section-label" title="把 Today 拖到这里，保存为固定入口"><span>PINNED <span class="label-cn">/ 固定入口</span></span><button id="add-pin" class="icon-button small" aria-label="添加固定入口" title="添加固定入口">+</button></div>
+      <div id="pins" class="pins"></div>
+      <div class="today-heading section-label"><span>TODAY <span class="label-cn">/ 临时页面</span><span id="today-count" class="count"></span></span><button id="add-today" class="icon-button small" aria-label="打开网页地址" title="打开网页地址">+</button></div>
+      <div id="today" class="today"></div>
+      <button id="new-tab" class="new-tab"><span>+</span> 新建标签 <kbd>/</kbd></button>
+    </div>
+    <div class="sidebar-bottom"><div class="lifecycle-note"><span aria-hidden="true">◉</span> 关闭页面，固定入口依然在。</div><div class="workspace-dock"><div id="spaces" class="space-buttons" aria-label="切换工作区"></div><button id="workspace-list" class="icon-button" aria-label="工作区列表" title="全部工作区">⌄</button><span class="dock-divider"></span><button id="settings" class="icon-button settings-icon" aria-label="轻量设置" title="设置">⚙</button></div><div class="dock-caption"><span id="dock-space-name"></span><span>工作区，不隔离登录</span></div></div>
+  </aside>
+  <div id="menu" class="context-menu" hidden></div>
+  <dialog id="dialog" aria-labelledby="dialog-title"><form id="dialog-form"><div class="dialog-heading"><span class="eyebrow">ARCLIKE / LOCAL FIRST</span><button type="button" id="dialog-close" class="icon-button" aria-label="关闭对话框">×</button></div><h2 id="dialog-title"></h2><div id="dialog-body"></div><div id="dialog-actions" class="dialog-actions"></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

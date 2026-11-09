@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArcLike · 浏览器交互检查</title>
+<style>
+body{font:14px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:#f4f3ed;color:#263d35;margin:24px}h1{font-size:24px}li{margin:7px 0}.failed{color:#a13d2f}iframe{width:100%;height:900px;border:1px solid #d7dfd5;border-radius:12px}a{color:#315e4d}
+</style>
+<h1>ArcLike 浏览器交互检查</h1>
+<p>只操作下方虚构原型；结束后恢复测试前的本地演示数据。请通过 README 的本地服务器打开。</p>
+<p id="status" role="status">正在运行…</p>
+<ol id="results"></ol>
+<p><a href="../index.html">返回原型 ↗</a> · 刷新本页可重新检查。</p>
+<iframe id="prototype" src="../index.html" title="待检查的 ArcLike 原型"></iframe>
+<script>
+const prototype = document.querySelector('#prototype');
+window.addEventListener('message', event => {
+  if (event.source !== prototype.contentWindow || event.origin !== location.origin || event.data.type !== 'arclike-test-result') return;
+  const result = event.data.result;
+  document.querySelector('#status').textContent = `${result.passed} / ${result.total} 项通过`;
+  document.querySelector('#status').classList.toggle('failed', result.passed !== result.total);
+  for (const item of result.results) {
+    const row = document.createElement('li');
+    row.textContent = `${item.pass ? '✓' : '✗'} ${item.name}${item.error ? ` — ${item.error}` : ''}`;
+    row.classList.toggle('failed', !item.pass);
+    document.querySelector('#results').append(row);
+  }
+});
+prototype.addEventListener('load', () => {
+  const script = prototype.contentDocument.createElement('script');
+  script.src = '../tests/browser.test.js';
+  prototype.contentDocument.body.append(script);
+});
+</script>
+</html>

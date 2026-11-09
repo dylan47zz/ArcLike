@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArcLike 扩展 UI 自检</title>
+  <style>body{margin:24px;background:#f4f3ed;color:#263d35;font:13px/1.8 system-ui,sans-serif}h1{font-size:22px;margin:0}p{max-width:650px}iframe{width:320px;height:720px;box-sizing:content-box;border:1px solid #bdcdbb;border-radius:10px;display:block}li{margin:7px 0}.failed{color:#a14e40}#status{font-weight:600}</style>
+  <script defer src="../model.js"></script><script defer src="../extension/controller.js"></script><script defer src="fake-chrome.js"></script><script defer src="extension-browser.test.js"></script>
+</head>
+<body>
+  <h1>ArcLike 扩展 UI 自检</h1>
+  <p>运行生产侧栏与后台代码，但 Chrome API 全部使用内存模拟器。不会安装扩展、读真实标签或操作你的日常浏览器。</p>
+  <p id="status" role="status">正在运行…</p>
+  <iframe id="panel-frame" title="真实侧栏代码 · 模拟 Chrome API"></iframe>
+  <ol id="results"></ol>
+</body>
+</html>

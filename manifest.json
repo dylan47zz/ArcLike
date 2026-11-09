@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "ArcLike",
+  "version": "0.1.6",
+  "description": "本地优先的中文标签页侧栏：Favorites、固定入口、Today 与工作区。",
+  "minimum_chrome_version": "141",
+  "permissions": ["sidePanel", "tabs", "storage", "alarms"],
+  "background": { "service_worker": "extension/background.js" },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Ctrl+Shift+Y", "mac": "Command+Shift+Y" }
+    },
+    "previous-space": {
+      "suggested_key": { "default": "Ctrl+Shift+Comma", "mac": "Command+Shift+Comma" },
+      "description": "切到上一个 ArcLike 工作区"
+    },
+    "next-space": {
+      "suggested_key": { "default": "Ctrl+Shift+Period", "mac": "Command+Shift+Period" },
+      "description": "切到下一个 ArcLike 工作区"
+    }
+  },
+  "action": {
+    "default_title": "打开 / 关闭 ArcLike 侧栏",
+    "default_icon": { "16": "extension/icons/16.png", "32": "extension/icons/32.png" }
+  },
+  "icons": { "16": "extension/icons/16.png", "48": "extension/icons/48.png", "128": "extension/icons/128.png" },
+  "side_panel": { "default_path": "extension/panel.html" },
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'" }
+}
